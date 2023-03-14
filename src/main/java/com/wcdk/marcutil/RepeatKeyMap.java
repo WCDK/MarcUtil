@@ -9,7 +9,7 @@ import java.util.function.BiConsumer;
 /**
  * <p>可重复键数据集合 Key-Value(请勿更改)</p>
  * @Description: 可重复键数据集合 Key-Value(请勿更改)
- * @Author: wench
+ * @Author: WCDK
  **/
 public class RepeatKeyMap<K,V>extends AbstractMap<K,V> implements Map<K,V>, Serializable,Cloneable {
     static final int DEFAULT_LENGTH = 1 << 3;
@@ -51,7 +51,7 @@ public class RepeatKeyMap<K,V>extends AbstractMap<K,V> implements Map<K,V>, Seri
     /**
      * <p>插入到 第n个同名key之后</p>
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      **/
 
     public V put(K key,V value,int index){
@@ -103,7 +103,7 @@ public class RepeatKeyMap<K,V>extends AbstractMap<K,V> implements Map<K,V>, Seri
     /**
      * <p>插入到指定位置</p>
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      **/
 
     public V putToIndex(K key,V value,int index){

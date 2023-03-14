@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
  * <p>marc 解析工具类 请勿更改</p>
  *
  * @Description:
- * @Author: wench
+ * @Author: WCDK
  **/
 public class MarcUtil<T> {
     private String tempPath = "d:/temp";
@@ -134,7 +134,7 @@ public class MarcUtil<T> {
      * <p>获取头标区</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      **/
     public List<String> getContents(String contentsString) throws RuntimeException {
         if (contentsString.length() % 12 != 0) {
@@ -275,7 +275,7 @@ public class MarcUtil<T> {
      * <p>獲取指定的第一個值的 子字段</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      **/
 
     public String getFiled(List<RepeatKeyMap<String, Object>> getdata, String subFiled) {
@@ -294,7 +294,7 @@ public class MarcUtil<T> {
      * <p>拼接所有字字段</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      **/
     public String getFiledAll(List<RepeatKeyMap<String, Object>> getdata, String... subFiled) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -326,7 +326,7 @@ public class MarcUtil<T> {
      * <p>权威记录格式</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      **/
 
     public RepeatKeyMap<String, String> getSubFiled2Authority(List<RepeatKeyMap<String, Object>> getdata) {
@@ -357,7 +357,7 @@ public class MarcUtil<T> {
      * <p>获取指定字段</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      * @Date:
      **/
     public List<RepeatKeyMap<String, Object>> getdata(Record record, String key1) {
@@ -394,7 +394,7 @@ public class MarcUtil<T> {
      * <p>获取指定字段</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      * @Date:
      **/
     public <T> List<T> getdata(Record record, String key1, Class<T> t) {
@@ -496,7 +496,7 @@ public class MarcUtil<T> {
      * <p>数据清理</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      * @Date:
      **/
     public Datafield cleanDatafiled(String data) {
@@ -560,7 +560,7 @@ public class MarcUtil<T> {
      * <p>生成xml 请勿修改节点名称</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      * @Date:
      **/
 
@@ -719,7 +719,7 @@ public class MarcUtil<T> {
      * <p>添加属性</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      **/
     public void addfiled(Record record, Object... obj) {
         if (obj != null && obj.length > 0) {
@@ -739,7 +739,7 @@ public class MarcUtil<T> {
      * <p>marc字段替换  只替换不会补充缺省内容</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      **/
 
     public void replace(Record record, Object... filed) {
@@ -778,7 +778,7 @@ public class MarcUtil<T> {
      * @param index  目标下标
      *               index 为替换第几个属性 默认1
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      **/
 
     public void replace(Record record, Object filed, int index) {
@@ -817,7 +817,7 @@ public class MarcUtil<T> {
      * <p>将marc record对象转换为 marcString</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      **/
     public String toMarcString(Record record) {
         StringBuffer value = new StringBuffer();
@@ -1017,7 +1017,7 @@ public class MarcUtil<T> {
      * <p>构建039字段</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      * @return createby createdate
      **/
     public Map<String,String> build039(Record record, String username) {
@@ -1109,7 +1109,7 @@ public class MarcUtil<T> {
      * <p>刷新008字段</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      * @return createby createdate
      **/
     public void flush008(Record record){
@@ -1131,7 +1131,7 @@ public class MarcUtil<T> {
      * <p>构建039字段</p>
      *
      * @Description: dateString YYYYMMddHHmm
-     * @Author: wench
+     * @Author: WCDK
      **/
     public void build039(Record record, String username, String dateString) {
         String yyyymMdd = dateString;
@@ -1353,7 +1353,7 @@ public class MarcUtil<T> {
      * <p>bibframe对象转换字符串</p>
      *
      * @Description:
-     * @Author: wench
+     * @Author: WCDK
      **/
 
     public String propertiesToStrem(Bibframe bibframe) throws Exception {
