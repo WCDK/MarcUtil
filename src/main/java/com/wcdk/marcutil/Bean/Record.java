@@ -3,6 +3,7 @@ package com.wcdk.marcutil.Bean;
 import com.wcdk.marcutil.RepeatKeyMap;
 import lombok.Data;
 
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 import java.util.List;
@@ -68,20 +69,32 @@ public class Record {
                 RepeatKeyMap<String, String> subfields = e.getSubfields();
                 subfields.forEach((k, v) -> {
                     stringBuilder.append("\u001F" + k);
-                    byte[] bytes = v.getBytes(StandardCharsets.UTF_8);
-                    boolean b = bytes[bytes.length - 1] == 0;
-                    if (b) {
-                        byte[] newb = new byte[bytes.length - 1];
-                        for (int i = 0; i < newb.length; i++) {
-                            newb[i] = bytes[i];
+                    byte[] bytes = new byte[0];
+                    try {
+                        bytes = v.getBytes(charSet);
+                    } catch (UnsupportedEncodingException ex) {
+                        ex.printStackTrace();
+                    }
+                    if(bytes != null && bytes.length > 0){
+                        boolean b = bytes[bytes.length - 1] == 0;
+                        if (b) {
+                            byte[] newb = new byte[bytes.length - 1];
+                            for (int i = 0; i < newb.length; i++) {
+                                newb[i] = bytes[i];
+                            }
+                            v = new String(newb);
                         }
-                        v = new String(newb);
                     }
                     stringBuilder.append(v);
                 });
 //                stringBuilder.append(e.getValue());
                 String datafield = stringBuilder.toString();
-                byte[] bytes = datafield.getBytes(StandardCharsets.UTF_8);
+                byte[] bytes = new byte[0];
+                try {
+                    bytes = datafield.getBytes(charSet);
+                } catch (UnsupportedEncodingException ex) {
+                    ex.printStackTrace();
+                }
                 int length = bytes.length;
                 conent.append(completionZero_prefix(String.valueOf(length), 4));
 

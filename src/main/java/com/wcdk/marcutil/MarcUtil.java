@@ -861,13 +861,15 @@ public class MarcUtil<T> {
                 subfields.forEach((k, v) -> {
                     stringBuilder.append("\u001F" + k);
                     byte[] bytes = v.getBytes(StandardCharsets.UTF_8);
-                    boolean b = bytes[bytes.length - 1] == 0;
-                    if (b) {
-                        byte[] newb = new byte[bytes.length - 1];
-                        for (int i = 0; i < newb.length; i++) {
-                            newb[i] = bytes[i];
+                    if(bytes != null && bytes.length > 0){
+                        boolean b = bytes[bytes.length - 1] == 0;
+                        if (b) {
+                            byte[] newb = new byte[bytes.length - 1];
+                            for (int i = 0; i < newb.length; i++) {
+                                newb[i] = bytes[i];
+                            }
+                            v = new String(newb);
                         }
-                        v = new String(newb);
                     }
                     stringBuilder.append(v);
                 });
