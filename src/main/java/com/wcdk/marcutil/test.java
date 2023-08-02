@@ -33,8 +33,6 @@ public class test {
             String s = marc.toBibmrame(record);
             System.out.println(s);
             Bibframe bibframe = marc.parseBibframeXML(s);
-            String a = "xsltproc  --stringparam baseuri www.baidu.com --stringparam idfield 001 --stringparam idsource www.baidu.com C:\\BibFrame\\\\marc2bibframe2.xsl d:\\temp\\308113550398.xml";
-            String b = "xsltproc  --stringparam baseuri www.baidu.com --stringparam idfield 001 --stringparam idsource www.baidu.com C:\\BibFrame\\\\marc2bibframe2.xsl d:\\temp\\308113510932.xml";
         } catch (Exception e) {
             e.printStackTrace();
         }
