@@ -617,7 +617,7 @@ public class MarcUtil<T> {
         List<Controlfield> controlfields = record.getControlfields();
 
         controlfields.forEach(cf -> {
-            recordNode.addElement("controlfield").addAttribute("tag", cf.getTag()).setText(cf.getValue());
+            recordNode.addElement("controlfield").addAttribute("tag", cf.getTag()).setText(cf.getValue().replaceAll("\\pP|\\pS", "").replace("&", "&amp;"));
         });
         List<Datafield> datafields = record.getDatafields();
         datafields.forEach(df -> {
@@ -627,7 +627,7 @@ public class MarcUtil<T> {
             RepeatKeyMap<String, String> subfields = df.getSubfields();
 
             subfields.forEach((k, v) -> {
-                datafieldNode.addElement("subfield").addAttribute("code", k).setText(v);
+                datafieldNode.addElement("subfield").addAttribute("code", k).setText(v.replaceAll("\\pP|\\pS", "").replace("&", "&amp;"));
             });
         });
         File file = new File(tempPath);
